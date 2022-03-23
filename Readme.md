@@ -15,19 +15,19 @@ https://keda.sh/docs/2.6/deploy/
     - <BLOB STORAGE ACCOUNT CONNECTION STRING EM BASE 64>: **Url do host do Event Hubs criado com a porta 9093**
     - <EVENT HUB NAME>: **Nome do namespace criado no Event Hubs**
 
-5) **Criar o namespace "worker"**:
+4) **Criar o namespace "worker"**:
     - kubectl create namespace worker
 
-4) **Aplique contra o seu ambiente de kubernetes**.
+5) **Aplique contra o seu ambiente de kubernetes**.
     - kubectl apply -f deployment.yaml
 
 **OBS**: se preferir modifique os valores de pollingInterval, cooldownPeriod. Eles foram configurados com intervalos menores para visualizar o Autoscaling acontecendo.
 
-5) **Abra a solução Keda.sln e configure em todos os arquivos de configuração os parametros para rodar local:**
+6) **Abra a solução Keda.sln e configure em todos os arquivos de configuração os parametros para rodar local:**
     - BootstrapServers: **Url do host do Event Hubs criado com a porta 9093**
     - ConnectionString: **ConnectionString do hub "keda-worker".**
 
-6) **Rode o projeto producer** escolhe a opção 1 e acompanhe pelo kubernetes o deployment fazer o autoscaling automatico.
+7) **Rode o projeto producer** escolhe a opção 1 e acompanhe pelo kubernetes o deployment fazer o autoscaling automatico.
 
-7) **Para limpar todos os recursos do teste:**
+8) **Para limpar todos os recursos do teste:**
     - kubectl delete namespace worker
